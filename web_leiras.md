@@ -34,6 +34,7 @@
 		<li>Probléma felvetés, illetve válaszadási lehetőség</li>
 		<li>Package beküldésének lehetősége</li>
 		<li>Hírlevél feliratkozás</li>
+		<li>Saját felhasználói profil szerkesztése</li>
 		<li>Kijelentkezés</li>
 	</ul>
 </p>

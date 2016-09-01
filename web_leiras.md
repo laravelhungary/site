@@ -51,6 +51,7 @@
 		<li>Beküldött package-ek jóváhagyása</li>
 		<li>Szponzor kezelése</li>
 		<li>Álláshirdetések jóváhagyása</li>
+		<li>Meetup létrehozása, kezelése</li>
 		<li>Kijelentkezés</li>
 	</ul>
 </p>

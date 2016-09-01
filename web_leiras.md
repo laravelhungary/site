@@ -13,6 +13,8 @@
 		<li>Adományozás / felajánlások lehetősége</li>
 		<li>Szponzorok megjelenítése</li>
 		<li>A közösség package listája</li>
+		<li>Álláshirdetés beküldése, jóváhagyott hirdetések megjelenítése</li>
+		<li>Felhasználói profil megtekintése</li>
 		<li>Regisztráció sima felhasználóként</li>
 		<li>Bejelentkezés sima felhasználóként</li>
 		<li>Bejelentkezés / Regisztráció közösségi fiókkal</li>
@@ -47,6 +49,7 @@
 		<li>Adminisztrátor meghívása</li>
 		<li>Beküldött package-ek jóváhagyása</li>
 		<li>Szponzor kezelése</li>
+		<li>Álláshirdetések jóváhagyása</li>
 		<li>Kijelentkezés</li>
 	</ul>
 </p>

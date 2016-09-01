@@ -10,6 +10,9 @@
 		<li>Meetup</li>
 		<li>Fórum megtekintése</li>
 		<li>Probléma felvetések és válaszok olvasása</li>
+		<li>Adományozás / felajánlások lehetősége</li>
+		<li>Szponzorok megjelenítése</li>
+		<li>A közösség package listája</li>
 		<li>Regisztráció sima felhasználóként</li>
 		<li>Bejelentkezés sima felhasználóként</li>
 		<li>Bejelentkezés / Regisztráció közösségi fiókkal</li>
@@ -27,6 +30,7 @@
 		<li>Pontrendszer</li>
 		<li>Fórum (topic létrehozása, hozzászólás)</li>
 		<li>Probléma felvetés, illetve válaszadási lehetőség</li>
+		<li>Package beküldésének lehetősége</li>
 		<li>Hírlevél feliratkozás</li>
 		<li>Kijelentkezés</li>
 	</ul>
@@ -41,6 +45,8 @@
 		<li>Videók jóváhagyása</li>
 		<li>Felhasználók áttekintése</li>
 		<li>Adminisztrátor meghívása</li>
+		<li>Beküldött package-ek jóváhagyása</li>
+		<li>Szponzor kezelése</li>
 		<li>Kijelentkezés</li>
 	</ul>
 </p>

@@ -18,9 +18,9 @@ class CreateAdminsTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('avatar');
-            $table->string('website_link');
-            $table->string('github_profile_link');
+            $table->string('avatar')->nullable();
+            $table->string('website_link')->nullable();
+            $table->string('github_profile_link')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

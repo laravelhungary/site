@@ -36,4 +36,13 @@ class LoginController extends Controller
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
+
+    /**
+     * Bejelentkezési felület beállítása.
+     * @return \Illuminate\Http\Response
+     */
+    public function showLoginForm()
+    {
+        return view('user.auth.login');
+    }
 }

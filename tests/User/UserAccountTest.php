@@ -5,6 +5,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserAccountTest extends TestCase
 {
@@ -27,5 +28,10 @@ class UserAccountTest extends TestCase
         	'avatar' => 'avatar/23424342.jpg',
         ]);
         return $user;
+    }
+
+    public function testLogin() {
+        $login = Auth::attempt(['email' => 'teszt@felhasznalo.hu', 'password' => '123456']);
+        return $this->assertTrue($login);
     }
 }

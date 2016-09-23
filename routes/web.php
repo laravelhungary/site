@@ -18,3 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::group(['prefix' => 'question'], function () {
+	Route::get('/', 'Page\QuestionController@index')->name('page.question.index');
+	Route::get('{public_id}/{slug}', 'Page\QuestionController@show')->name('page.question.show');
+});

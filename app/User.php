@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\Question;
 
 class User extends Authenticatable
 {
@@ -26,4 +27,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token', 'github_token',
     ];
+
+    /**
+     * Egy a többhöz kapcsolat a felhasználó és a kérdések között.
+     * @return [type] [description]
+     */
+    public function questions() {
+        return $this->hasMany(Question::class);
+    }
 }

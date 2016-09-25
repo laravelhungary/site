@@ -16,6 +16,8 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('auth/github', 'Auth\LoginController@redirectToProvider')->name('auth.login.github');
+Route::get('auth/github/callback', 'Auth\LoginController@handleProviderCallback')->name('auth.login.github.callback');
 
 Route::get('/home', 'HomeController@index');
 

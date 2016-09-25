@@ -35,4 +35,10 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'github' => [
+        'client_id' => '067d2793299613a98451',
+        'client_secret' => '6923a98f9e90c30eb8bc31b2d62fa9d13eee0600',
+        'redirect' => 'http://laravelhungarysite.dev/auth/github/callback',
+    ],
+
 ];

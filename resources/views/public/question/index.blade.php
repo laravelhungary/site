@@ -4,6 +4,9 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12 col-md-8">
+			<div class="panel">
+				<a href="{{ route('user.question.create') }}" class="btn btn-primary">Új kérdés beküldése</a>
+			</div>
 			@foreach($questions as $question)
 			<div class="panel">
 				<div class="panel-body">

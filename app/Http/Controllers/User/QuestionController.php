@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Question;
 
 class QuestionController extends Controller
 {
@@ -16,7 +15,11 @@ class QuestionController extends Controller
 	 * kérdést feltenni.
 	 */
     public function __construct() {
-    	$this->middleware('auth');
+    	$this->middleware('auth:web');
+    }
+
+    public function create() {
+        return view('user.question.create');
     }
 
     /**

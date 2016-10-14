@@ -35,4 +35,8 @@ class User extends Authenticatable
     public function questions() {
         return $this->hasMany(Question::class);
     }
+
+    public function getAvatarAttribute() {
+        return $this->attributes['avatar'];
+    }
 }

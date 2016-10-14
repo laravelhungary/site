@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    @yield('css')
 
     <!-- Scripts -->
     <script>
@@ -27,5 +28,6 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    @yield('js')
 </body>
 </html>

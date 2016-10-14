@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
+use App\Traits\Relationships\CommentRelationshipTrait;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
-use \Illuminate\Database\Eloquent\Builder;
 
 class Question extends Model
 {
-	protected $primaryKey = ['public_id', 'slug'];
-    public $incrementing = false;
+    use CommentRelationshipTrait;
 
     protected $fillable = ['title', 'slug', 'content', 'public_id', 'user_id', 'views'];
 
@@ -28,6 +27,10 @@ class Question extends Model
      */
     public function user() {
     	return $this->belongsTo(User::class);
+    }
+
+    public function getPrimaryKey() {
+        return $this->primaryKey;
     }
 
     /**
@@ -64,43 +67,5 @@ class Question extends Model
         return $this->update(['views' => $this->attributes['views'] + 1]);
     }
 
-    /**
-     * Set the keys for a save update query.
-     * Módosítani kellett az eredeti metódust, a primaryKey tömb értéke miatt.
-     *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    protected function setKeysForSaveQuery(Builder $query)
-    {
-        $keys = $this->getKeyName();
-        if(!is_array($keys)){
-            return parent::setKeysForSaveQuery($query);
-        }
 
-        foreach($keys as $keyName){
-            $query->where($keyName, '=', $this->getKeyForSaveQuery($keyName));
-        }
-
-        return $query;
-    }
-
-    /**
-     * Get the primary key value for a save query.
-     * Módosítani kellett az eredeti metódust, a primaryKey tömb értéke miatt.
-     *
-     * @return mixed
-     */
-    protected function getKeyForSaveQuery($keyName = null)
-    {
-        if(is_null($keyName)){
-            $keyName = $this->getKeyName();
-        }
-
-        if (isset($this->original[$keyName])) {
-            return $this->original[$keyName];
-        }
-
-        return $this->getAttribute($keyName);
-    }
 }

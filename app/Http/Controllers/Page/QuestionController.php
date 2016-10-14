@@ -29,6 +29,7 @@ class QuestionController extends Controller
     public function show($public_id, $slug) {
     	$question = Question::wherePublicId($public_id)->whereSlug($slug)->firstOrFail();
         $question->incrementViews();
-    	return view('public.question.show', compact('question'));
+        $comments = $question->comments()->latest()->paginate(20);
+    	return view('public.question.show', compact('question', 'comments'));
     }
 }

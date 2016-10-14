@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\Comment;
 use App\Models\Question;
 use Illuminate\Http\Request;
 
@@ -25,6 +26,15 @@ class QuestionCommentController extends Controller
             'body' => $request->body,
             'user_id' => auth()->user()->id,
         ]);
-        return back()->with('success', 'Sikeresen beküldte a válaszát. Mindannyian köszönjük!');
+        return back()->with('success', 'Sikeresen beküldted a válaszod. Mindannyian köszönjük!');
+    }
+
+    public function like(Request $request) {
+        $this->validate($request, [
+            'comment' => 'required',
+        ]);
+
+        Comment::findOrFail($request->comment)->doLike();
+        return response()->json(['message' => 'Sikeres művelet történt.']);
     }
 }

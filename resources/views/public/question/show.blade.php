@@ -37,21 +37,7 @@
 					@endif
 				</div>
 				<div class="panel-body">
-					@foreach($comments as $comment)
-						<div class="media">
-							<div class="media-left">
-								<a href="#">
-									<img class="media-object" src="{{ $comment->user->avatar }}"
-										 alt="{{ $comment->user->name }}" width="75px">
-								</a>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">{{ $comment->user->name }}</h4>
-								<p><i>{{ $comment->created_at->diffForHumans() }}</i></p>
-								<p>{{ $comment->body }}</p>
-							</div>
-						</div>
-					@endforeach
+					@each('public.question.partial_comments', $comments, 'comment')
 				</div>
 			</div>
 		</div>

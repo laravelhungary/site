@@ -11,7 +11,9 @@
     <title>Laravel</title>
 
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+
     @yield('css')
 
     <!-- Scripts -->

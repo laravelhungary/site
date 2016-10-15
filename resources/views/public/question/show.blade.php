@@ -26,7 +26,7 @@
 			<div class="panel">
 				<div class="panel-body">
 					@if (auth()->check())
-						<a href="#" id="like_to_answer">Szeretnék válaszolni neki</a>
+						<a href="#" id="would_like_to_answer">Szeretnék válaszolni neki</a>
 						<div id="answer_form" class="hidden">
 							@include('user.question.partial_comment', ['commentableId' => $question->id])
 						</div>
@@ -45,9 +45,11 @@
 </div>
 @endsection
 
-@section('js')
+@push('js')
+	<script src="{{ asset('js/modul/like.js') }}"></script>
 	<script>
-		$(document).on('click', 'a#like_to_answer', function (event) {
+		$(document).on('click', 'a#would_like_to_answer', function (event) {
+			console.log('okokok');
 			event.preventDefault();
 			var event_link = $(this);
 			if ($('#answer_form').hasClass('hidden')) {
@@ -60,4 +62,4 @@
 
 		})
 	</script>
-@endsection
+@endpush

@@ -10,7 +10,10 @@ class Question extends Model
 {
     use CommentRelationshipTrait;
 
-    protected $fillable = ['title', 'slug', 'content', 'public_id', 'user_id', 'views'];
+    protected $fillable = [
+        'title', 'slug', 'content', 'public_id', 'user_id', 'views',
+        'solved',
+    ];
 
     public static function boot() {
     	// Automatikusan hozzáad egy értéket az attribútumhoz a create() függvény meghívásánál.
@@ -67,5 +70,8 @@ class Question extends Model
         return $this->update(['views' => $this->attributes['views'] + 1]);
     }
 
+    public function solvedComment() {
+        return $this->hasOne(Comment::class, 'id','solved');
+    }
 
 }

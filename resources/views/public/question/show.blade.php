@@ -8,11 +8,17 @@
 				<div class="panel-body">
 					<div class="media">
 						<div class="media-body">
-					  		<h4 class="media-heading">{{ $question->title }}</h4>
+					  		<h4 class="media-heading">
+								{{ $question->title }}
+								@if ($question->solved)
+									<span class="label label-success pull-right">Megoldva</span>
+								@endif
+							</h4>
 					    	<p><small>
 					    		<i class="glyphicon glyphicon-time"></i> kérdezte {{ $question->created_at->diffForHumans() }} - 
 					    		<a href="#">{{ $question->user->name }}</a>
 				    		</small></p>
+
 					  	</div>
 					</div>
 					<div class="media">
@@ -20,6 +26,10 @@
 						{{ $question->content }}
 						</div>
 					</div>
+
+					@if ($question->solved)
+						@include('public.question.partial_comments', ['comment' => $question->solvedComment])
+					@endif
 				</div>
 			</div>
 
@@ -46,20 +56,9 @@
 @endsection
 
 @push('js')
+	<script src="{{ asset('js/modul/questions.js') }}"></script>
 	<script src="{{ asset('js/modul/like.js') }}"></script>
 	<script>
-		$(document).on('click', 'a#would_like_to_answer', function (event) {
-			console.log('okokok');
-			event.preventDefault();
-			var event_link = $(this);
-			if ($('#answer_form').hasClass('hidden')) {
-				$('#answer_form').removeClass('hidden');
-				event_link.html('Űrlap elrejtése');
-				return;
-			}
-			$('#answer_form').addClass('hidden');
-			event_link.html('Szeretnék válaszolni neki');
 
-		})
 	</script>
 @endpush

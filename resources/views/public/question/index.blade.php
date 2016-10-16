@@ -12,7 +12,12 @@
 				<div class="panel-body">
 					<div class="media">
 						<div class="media-body">
-					  		<h4 class="media-heading"><a href="{{ route('page.question.show', [$question->public_id, $question->slug]) }}">{{ $question->title }}</a></h4>
+					  		<h4 class="media-heading">
+								<a href="{{ route('page.question.show', [$question->public_id, $question->slug]) }}">{{ $question->title }}</a>
+								@if ($question->solved)
+									<span class="label label-success pull-right">Megoldva</span>
+								@endif
+							</h4>
 					    	<p><small>
 					    		<i class="glyphicon glyphicon-time"></i> kérdezte {{ $question->created_at->diffForHumans() }} - 
 					    		<a href="#">{{ $question->user->name }}</a>

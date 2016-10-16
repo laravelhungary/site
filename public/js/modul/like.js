@@ -1,1 +1,23 @@
-var btn;$(document).on("click",".like",function(t){t.preventDefault();var a=$(this).attr("data-action"),n=$(this).attr("data-comment");btn=$(this),$.post(a,{comment:n},function(t){}).done(function(t){return btn.hasClass("active")?(btn.removeClass("active"),btn.attr("data-original-title","Tetszik a hozzászólás."),!0):(btn.addClass("active"),btn.attr("data-original-title","Mégsem tetszik a hozzászólás."),!0)}).fail(function(t){})});
+var btn;
+$(document).on('click', '.like', function (event) {
+    event.preventDefault();
+    var action = $(this).attr('data-action');
+    var comment = $(this).attr('data-comment');
+    btn = $(this);
+    $.post(action, {comment: comment}, function (result) {
+
+    }).done(function (result) {
+        if (btn.hasClass('active')) {
+            btn.removeClass('active');
+            btn.attr('data-original-title', 'Tetszik a hozzászólás.');
+            return true;
+        }
+        btn.addClass('active');
+        btn.attr('data-original-title', 'Mégsem tetszik a hozzászólás.')
+        return true;
+    }).fail(function (result) {
+        console.error('Hiba történt a lájkolásnál: ' + result.statusText);
+    });
+});
+
+//# sourceMappingURL=like.js.map

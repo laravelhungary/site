@@ -37,4 +37,16 @@ class QuestionCommentController extends Controller
         Comment::findOrFail($request->comment)->doLike();
         return response()->json(['message' => 'Sikeres művelet történt.']);
     }
+
+    public function solved(Request $request) {
+        $this->validate($request, [
+            'comment' => 'required',
+            'question' => 'required',
+        ]);
+
+        $question = Question::findOrFail($request->question);
+        $question->update(['solved' => $request->comment]);
+
+        return response()->json(['message', 'Nagyszerű! Mentettük a feltett probléma megoldását.']);
+    }
 }
